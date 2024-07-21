@@ -8,6 +8,8 @@ namespace DatingProfile
     {
       Profile john = new Profile("John Doe", 28, "Denver, CO", "USA", "he/him");
 
+      john.SetHobbies(new string[] {"Hiking", "Golf", "Football", "Reading", "Coding"});
+
       Console.WriteLine(john.ViewProfile());
     }
   }
