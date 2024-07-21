@@ -1,4 +1,4 @@
-using system;
+using System;
 
 namespace AtTheRaces
 {
@@ -7,7 +7,7 @@ namespace AtTheRaces
     static void Main(string[] args)
     {
       int userMoney = 150;
-      bool continue = true;
+      bool continuePlaying = true;
       Random winner = new Random();
       string[] horses = new string[] {"RedRum","Maximus", "Air Horse One", "I'm Coasting", "Hasta La Vista", "Bolt"};
 
@@ -19,12 +19,12 @@ namespace AtTheRaces
       Console.WriteLine("First place will see your bet tripled! Can you reach $500..?");
       Console.WriteLine("\n");
 
-    while (continue && userMoney > 0)
+    while (continuePlaying && userMoney > 0)
     {
       Console.WriteLine($"Your current balance is ${userMoney}");
       Console.WriteLine("How much are you willing to bet: ");
       string betString = Console.ReadLine();
-      int bet = Int.Parse(betString);
+      int bet = Int32.Parse(betString);
 
       if (bet > userMoney || bet <= 0)
       {
@@ -35,10 +35,10 @@ namespace AtTheRaces
       Console.WriteLine("\n");
       Console.WriteLine("It's now time to choose your champion...");
       Console.WriteLine("\n");
-      Console.WriteLine($"In lane 1 we have: {horses[0]}\nIn lane 2 we have {horses[1]}\nIn lane 3 we have {horses[2]}\nIn lane 4 we have {horses[3]}\nIn lane 5 we have {horses[4]}\nIn lane 6 we have {horses[5]}");
-      Console.WriteLine("Choose by picking the line of your desired horse:")
+      Console.WriteLine($"In lane 1 we have: {horses[0]}\nIn lane 2 we have: {horses[1]}\nIn lane 3 we have: {horses[2]}\nIn lane 4 we have: {horses[3]}\nIn lane 5 we have: {horses[4]}\nIn lane 6 we have: {horses[5]}");
+      Console.WriteLine("Choose by picking the lane of your desired horse:");
       string horseChoice = Console.ReadLine();
-      int horseIndex = Int.Parse(horseChoice) - 1;
+      int horseIndex = Int32.Parse(horseChoice) - 1;
 
       if (horseIndex < 0 || horseIndex > 5)
       {
@@ -46,9 +46,9 @@ namespace AtTheRaces
         continue;
       }
 
-      int winningHorseIndex = random.Next(0, 6);
+      int winningHorseIndex = winner.Next(0, 6);
       Console.WriteLine("The winner of the race was.......");
-      Console.WriteLine($"{horses.GetValue(winningHorseIndex)}");
+      Console.WriteLine($"{horses[winningHorseIndex]}");
 
       if (horseIndex == winningHorseIndex)
       {
@@ -58,30 +58,28 @@ namespace AtTheRaces
       else
       {
         Console.WriteLine($"Better luck next time, you lost your ${bet}.");
+        userMoney -= bet;
       }
 
       Console.WriteLine($"Your new balance is ${userMoney}.");
 
-      if (userMoney > 500)
+      if (userMoney >= 500)
       {
-        Console.Write("You have succesfully bankrupt the racecourse, thanks for playing!");
-        playing = false;
+        Console.Write("You have successfully bankrupt the racecourse, thanks for playing!");
+        continuePlaying = false;
       }
-      elseif (userMoney > 0)
+      else if (userMoney > 0)
       {
         Console.WriteLine("Would you like to continue? (y/n):");
         string keepPlaying = Console.ReadLine();
-        continue = keepPlaying.ToLower() == "y";
+        continuePlaying = keepPlaying.ToLower() == "y";
       }
       else
       {
         Console.WriteLine("You're bankrupt, thanks for all your money! Please come again...");
-        continue = false;
+        continuePlaying = false;
       }
-
     }
-
     }
   }
-
 }
