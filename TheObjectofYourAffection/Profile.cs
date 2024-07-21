@@ -22,5 +22,11 @@ namespace DatingProfile
       this.pronouns = pronouns;
       this.hobbies = new string[] {};
     }
+
+    // methods
+    public string ViewProfile()
+    {
+      return $"Name: {this.name}\nAge: {this.age}\nCity: {this.city}\nCountry: {this.country}\nProunouns: {this.pronouns}";
+    }
   }
 }
