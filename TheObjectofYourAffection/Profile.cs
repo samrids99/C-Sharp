@@ -2,13 +2,13 @@ using System;
 
 namespace DatingProfile
 {
-  public class Profile
+  class Profile
   {
-    string name;
-    int age;
-    string city;
-    string country;
-    string pronouns;
-    string[] hobbies;
+    private string name;
+    private int age;
+    private string city;
+    private string country;
+    private string pronouns;
+    private string[] hobbies;
   }
 }
