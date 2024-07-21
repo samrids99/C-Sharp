@@ -26,7 +26,13 @@ namespace DatingProfile
     // methods
     public string ViewProfile()
     {
-      return $"Name: {this.name}\nAge: {this.age}\nCity: {this.city}\nCountry: {this.country}\nProunouns: {this.pronouns}";
+      string hobbiesList = string.Join(", ", this.hobbies);
+      return $"Name: {this.name}\nAge: {this.age}\nCity: {this.city}\nCountry: {this.country}\nProunouns: {this.pronouns}\nHobbies: {hobbiesList}";
+    }
+
+    public void SetHobbies(string[] hobbies)
+    {
+      this.hobbies = hobbies;
     }
   }
 }
