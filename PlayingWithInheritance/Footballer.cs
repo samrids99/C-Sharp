@@ -20,13 +20,13 @@ namespace PlayingWithInheritance
       this.ShirtNumber = shirtNumber;
     }
 
-    // method
+    // methods
     public string Kick()
     {
       return $"Number {ShirtNumber} for the blues pings one across the park in a brilliant switch of play";
     }
 
-    public string Score()
+    public virtual string Score()
     {
       return $"{Name} takes a crack at goal, he's 30 yards out......GOALLLLLL!";
     }
