@@ -2,7 +2,7 @@ using System;
 
 namespace PlayingWithInheritance
 {
-  class Starter : Reserve
+  class Starter : Footballer
   {
     public Starter(string name, string nationality, int shirtNumber) : base(name, nationality, shirtNumber)
     {
